@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val btn = Button(this)
         val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         params.setMargins(DPToPX, DPToPX, DPToPX, DPToPX)
-//        params에 패딩 넣어서 해보기
         btn.setPadding(DPToPX, DPToPX, DPToPX, DPToPX)
         btn.layoutParams = params
 
@@ -34,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         
         val editText = EditText(this)
         val height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100f, resources.displayMetrics).toInt()
-//        높이 wrap content로 해보기
         editText.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height)
         editText.setBackgroundColor(Color.parseColor("#ffff00"))
         editText.gravity = Gravity.CENTER or Gravity.RIGHT
