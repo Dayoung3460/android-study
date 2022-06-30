@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".QuoteMainActivity">
+
+    <TextView
+        android:id="@+id/quote_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="다가올 10년의 변화가 지난 50년의 변화보다 더 클 것이다." />
+
+    <TextView
+        android:id="@+id/quote_from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="빌 게이츠"
+        android:textColor="#444444"
+        android:gravity="right"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/quote_edit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="명언 편집"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/quote_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="명언 보기"
+        android:layout_gravity="center" />
+
+
+
+</LinearLayout>
