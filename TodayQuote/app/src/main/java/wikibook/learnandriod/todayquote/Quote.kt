@@ -14,6 +14,7 @@ data class Quote(var idx: Int, var text: String, var from: String = "") {
             return Quote(idx, text, from)
         }
 
+
 //        fun for returning all stored quote list
         fun getQuoteFromPreference(pref: SharedPreference): MutableList<Quote> {
             val quote = mutableListOf<Quote>()
