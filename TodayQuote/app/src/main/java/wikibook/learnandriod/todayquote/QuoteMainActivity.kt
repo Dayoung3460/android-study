@@ -31,18 +31,22 @@ class QuoteMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quote_activity_main)
 
+        pref = getSharedPreferences("quotes", Context.MODE_PRIVATE)
+        inititalizeQuotes()
+
         val quoteText = findViewById<TextView>(R.id.quote_text)
         val quoteFrom = findViewById<TextView>(R.id.quote_from)
 
-        quotes = mutableListOf()
-        quotes.add(Quote(1, "명언1", "출처1"))
-        quotes.add(Quote(2, "명언2", "출처2"))
-        quotes.add(Quote(3, "명언3", "출처3"))
+        quotes = Quotes.getQuotesFromPreference(pref)
 
-        val randomIndex = Random().nextInt(quotes.size)
-        val randomQuote = quotes[randomIndex]
-
-        quoteText.text = randomQuote.text
-        quoteFrom.text = randomQuote.from
+        if(quote.isNotEmpty()) {
+            val randomIndex = Random().nextInt(quote.size)
+            val randomQuote = quotes[randomIndex]
+            quoteText.text = randomQuote.text
+            quoteFrom.text = randomQuote.from
+        } else {
+            quoteText.text = "저장된 명언이 없습니다."
+            quote.text = ""
+        }
     }
 }
