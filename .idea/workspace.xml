@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodayQuote/app/src/main/java/wikibook/learnandriod/todayquote/Quote.kt" beforeDir="false" afterPath="$PROJECT_DIR$/TodayQuote/app/src/main/java/wikibook/learnandriod/todayquote/Quote.kt" afterDir="false" />
-    </list>
+    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment="SharedPreference" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +36,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/TodayQuote" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -106,6 +104,36 @@
       <option name="presentableId" value="Default" />
       <updated>1656574853812</updated>
     </task>
+    <task id="LOCAL-00001" summary="SharedPreference">
+      <created>1657262170977</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657262170977</updated>
+    </task>
+    <task id="LOCAL-00002" summary="SharedPreference">
+      <created>1657262208038</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657262208038</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SharedPreference" />
+    <option name="LAST_COMMIT_MESSAGE" value="SharedPreference" />
   </component>
 </project>
