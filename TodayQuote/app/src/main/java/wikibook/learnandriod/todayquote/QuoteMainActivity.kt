@@ -1,5 +1,7 @@
 package wikibook.learnandriod.todayquote
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -37,16 +39,16 @@ class QuoteMainActivity : AppCompatActivity() {
         val quoteText = findViewById<TextView>(R.id.quote_text)
         val quoteFrom = findViewById<TextView>(R.id.quote_from)
 
-        quotes = Quotes.getQuotesFromPreference(pref)
+        quotes = Quote.getQuotesFromPreference(pref)
 
-        if(quote.isNotEmpty()) {
-            val randomIndex = Random().nextInt(quote.size)
+        if(quotes.isNotEmpty()) {
+            val randomIndex = Random().nextInt(quotes.size)
             val randomQuote = quotes[randomIndex]
             quoteText.text = randomQuote.text
             quoteFrom.text = randomQuote.from
         } else {
             quoteText.text = "저장된 명언이 없습니다."
-            quote.text = ""
+            quoteFrom.text = ""
         }
     }
 }

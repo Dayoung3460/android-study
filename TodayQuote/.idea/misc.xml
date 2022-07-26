@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android-study/TodayQuote/app/src/main/res/layout/quote_activity_main.xml" value="0.35190217391304346" />
+        <entry key="app/src/main/res/layout/quote_list_activity.xml" value="0.24241144089471728" />
       </map>
     </option>
   </component>
@@ -12,5 +13,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.15476190476190477" />
+      </ProjectState>
+    </option>
   </component>
 </project>
