@@ -1,6 +1,7 @@
 package wikibook.learnandriod.todayquote
 
 import android.content.SharedPreferences
+import android.util.Log
 
 data class Quote(var idx: Int, var text: String, var from: String = "") {
     companion object {
