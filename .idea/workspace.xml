@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment="init quotes">
+    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment="show quote on UI">
+      <change afterPath="$PROJECT_DIR$/DynamicViewStudy/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DynamicViewStudy/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TodayQuote/app/src/main/java/wikibook/learnandriod/todayquote/QuoteMainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/TodayQuote/app/src/main/java/wikibook/learnandriod/todayquote/QuoteMainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DynamicViewStudy/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DynamicViewStudy/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657263811126</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="show quote on UI">
+      <created>1657266398893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657266398893</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +161,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SharedPreference" />
     <MESSAGE value="init quotes" />
-    <option name="LAST_COMMIT_MESSAGE" value="init quotes" />
+    <MESSAGE value="show quote on UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="show quote on UI" />
   </component>
 </project>
