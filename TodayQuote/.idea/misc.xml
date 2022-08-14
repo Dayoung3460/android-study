@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/android-study/TodayQuote/app/src/main/res/layout/quote_activity_main.xml" value="0.35190217391304346" />
+        <entry key="app/src/main/res/layout/quote_edit_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/quote_list_item.xml" value="0.15626220703125002" />
       </map>
     </option>

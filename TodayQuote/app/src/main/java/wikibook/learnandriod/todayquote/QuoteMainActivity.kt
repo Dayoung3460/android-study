@@ -38,7 +38,7 @@ class QuoteMainActivity : AppCompatActivity() {
 
         pref = getSharedPreferences("quotes", Context.MODE_PRIVATE)
         inititalizeQuotes()
-
+//        println(Quote.getQuotesFromPreference(pref))
         val quoteText = findViewById<TextView>(R.id.quote_text)
         val quoteFrom = findViewById<TextView>(R.id.quote_from)
 

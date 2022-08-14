@@ -16,10 +16,8 @@ class QuoteEditAdapter(private val dataList: List<Quote>): RecyclerView.Adapter<
         val quoteFromEdit = view.findViewById<EditText>(R.id.quote_from_edit)
         val quoteDeleteBtn = view.findViewById<Button>(R.id.quote_delete_btn)
         val quoteModifyBtn = view.findViewById<Button>(R.id.quote_modify_btn)
-
         init {
-            val pref = view.context.getSharedPreferences("quote", Context.MODE_PRIVATE)
-
+            val pref = view.context.getSharedPreferences("quotes", Context.MODE_PRIVATE)
             quoteDeleteBtn.setOnClickListener {
                 quoteTextEdit.setText("")
                 quoteFromEdit.setText("")
@@ -45,7 +43,6 @@ class QuoteEditAdapter(private val dataList: List<Quote>): RecyclerView.Adapter<
             quoteFromEdit.setText(quote.from)
         }
     }
-
 //    parent = RecyclerView
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuoteItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
@@ -54,7 +51,4 @@ class QuoteEditAdapter(private val dataList: List<Quote>): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: QuoteItemViewHolder, position: Int) = holder.bind(dataList[position])
     override fun getItemCount() = dataList.size
     override fun getItemViewType(position: Int) = R.layout.quote_edit_list_item
-
-
-
 }
