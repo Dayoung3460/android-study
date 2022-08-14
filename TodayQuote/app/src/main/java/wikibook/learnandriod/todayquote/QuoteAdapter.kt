@@ -22,7 +22,7 @@ class QuoteAdapter(private val dataList: List<Quote>): RecyclerView.Adapter<Quot
                 val intent = Intent(Intent.ACTION_SEND)
                 intent.putExtra(Intent.EXTRA_TITLE, "Quote to cheer you up")
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Quote to cheer you up")
-                intent.putExtra(Intent.EXTRA_TEXT, "${quote.text}/nfrom: ${quote.from}")
+                intent.putExtra(Intent.EXTRA_TEXT, "${quote.text}\nfrom: ${quote.from}")
                 intent.type = "text/plain"
 
                 val chooser = Intent.createChooser(intent, "Share quote")
