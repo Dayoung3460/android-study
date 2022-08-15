@@ -1,6 +1,5 @@
 package com.example.lotto
 
-import android.app.ListActivity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
