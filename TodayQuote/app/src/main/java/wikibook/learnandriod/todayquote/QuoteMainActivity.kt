@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import java.util.*
@@ -37,7 +38,7 @@ class QuoteMainActivity : AppCompatActivity() {
 
         pref = getSharedPreferences("quotes", Context.MODE_PRIVATE)
         inititalizeQuotes()
-
+//        println(Quote.getQuotesFromPreference(pref))
         val quoteText = findViewById<TextView>(R.id.quote_text)
         val quoteFrom = findViewById<TextView>(R.id.quote_from)
 

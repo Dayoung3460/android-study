@@ -1,6 +1,6 @@
 package wikibook.learnandriod.todayquote
-
 import android.content.SharedPreferences
+import android.util.Log
 
 data class Quote(var idx: Int, var text: String, var from: String = "") {
     companion object {
@@ -12,7 +12,9 @@ data class Quote(var idx: Int, var text: String, var from: String = "") {
             editor.putString("$idx.from", from.trim())
 
             editor.apply()
-
+//            println(idx)
+//            println(Quote(idx, text, from))
+//            Log.d("asdf", "11111111")
             return Quote(idx, text, from)
         }
 
@@ -34,11 +36,12 @@ data class Quote(var idx: Int, var text: String, var from: String = "") {
 
 //        fun for removing specific quote
         fun removeQuoteFromPreference(pref: SharedPreferences, idx: Int) {
+            println(idx)
             val editor = pref.edit()
-
             editor.remove("$idx.text")
             editor.remove("$idx.from")
             editor.apply()
+//            println(getQuotesFromPreference(pref))
         }
 
     }

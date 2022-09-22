@@ -20,4 +20,19 @@
         android:gravity="right"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quote_share_btn"
+        android:backgroundTint="#007bff"
+        android:textColor="#ffffff"
+        android:text="Share"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quote_from_search_btn"
+        android:backgroundTint="#28a745"
+        android:textColor="#ffffff"
+        android:text="Search"/>
 </LinearLayout>
