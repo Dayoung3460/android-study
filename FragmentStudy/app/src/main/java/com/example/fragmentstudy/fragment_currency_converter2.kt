@@ -5,55 +5,50 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class CurrencyConverterFragment2: Fragment() {
+    private val currencyExchangeMap = mapOf("USD" to 1.0, "EUR" to 0.9, "JPY" to 110.0, "KRW" to 1150.0)
+    private fun calculateCurrency(amount: Double, from: String, to: String): Double {
+        val USDAmount = if(from != "USD") (amount / currencyExchangeMap[from]!!) else amount
+        return currencyExchangeMap[to]!! * USDAmount
+    }
 
-/**
- * A simple [Fragment] subclass.
- * Use the [fragment_currency_converter2.newInstance] factory method to
- * create an instance of this fragment.
- */
-class fragment_currency_converter2 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var fromCurrency: String
+    lateinit var toCurrency: String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    companion object {
+        fun newInstance(from: String, to: String): CurrencyConverterFragment2 {
+            val fragment = CurrencyConverterFragment2()
+            val args = Bundle()
+            args.putString("from", from)
+            args.putString("to", to)
+            fragment.arguments = args
+            return fragment
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_currency_converter2, container, false)
+        val view = inflater.inflate(R.layout.fragment_currency_converter2, container, false)
+        val calculateBtn = view.findViewById<Button>(R.id.calculate)
+        val amount = view.findViewById<EditText>(R.id.amount)
+        val result = view.findViewById<TextView>(R.id.result)
+
+        fromCurrency = arguments?.getString("from", "USD")!!
+        toCurrency = arguments?.getString("to", "USD")!!
+        view.findViewById<TextView>(R.id.exchange_type).text = "${fromCurrency} -> ${toCurrency} convert"
+
+        calculateBtn.setOnClickListener{
+            result.text = calculateCurrency(amount.text.toString().toDouble(), fromCurrency, toCurrency).toString()
+        }
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fragment_currency_converter2.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            fragment_currency_converter2().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
