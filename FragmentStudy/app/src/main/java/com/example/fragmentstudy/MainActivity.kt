@@ -8,7 +8,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, CurrencyConverterFragment1())
+        transaction.add(R.id.fragment_container, CurrencyConverterFragment2.newInstance("KWR", "USD"))
+        transaction.add(R.id.fragment_container, CurrencyConverterFragment2.newInstance("JPY", "KRW"))
+        transaction.add(R.id.fragment_container, CurrencyConverterFragment2.newInstance("EUR", "JPY"))
         transaction.commit()
     }
 }
