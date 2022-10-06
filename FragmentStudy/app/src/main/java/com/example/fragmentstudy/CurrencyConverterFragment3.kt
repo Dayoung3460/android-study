@@ -2,6 +2,7 @@ package com.example.fragmentstudy
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,6 @@ class CurrencyConverterFragment3: Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         if(activity is CurrencyConverterFragment3.CurrencyCalculationListener) {
             listener = activity as CurrencyConverterFragment3.CurrencyCalculationListener
         } else {
@@ -28,6 +28,7 @@ class CurrencyConverterFragment3: Fragment() {
     }
 
     private val currencyExchangeMap = mapOf("USD" to 1.0, "EUR" to 0.9, "JPY" to 110.0, "KRW" to 1150.0)
+
     private fun calculateCurrency(amount: Double, from: String, to: String): Double {
         var USDAmount = if(from != "USD") (amount / currencyExchangeMap[from]!!) else amount
         return currencyExchangeMap[to]!! * USDAmount
@@ -42,6 +43,7 @@ class CurrencyConverterFragment3: Fragment() {
             val args = Bundle()
             args.putString("from", from)
             args.putString("to", to)
+            fragment.arguments = args
             fragment.arguments = args
             return fragment
         }
