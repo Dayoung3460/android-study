@@ -10,7 +10,7 @@ class WeatherMainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, WeatherPageFragment())
+        transaction.add(R.id.fragment_container, WeatherPageFragment.newInstance("Sunny", 10.0))
         transaction.commit()
     }
 }
