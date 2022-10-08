@@ -39,7 +39,7 @@ class WeatherPageFragment : Fragment() {
 
         weatherImage.setImageResource(requireArguments().getInt("res_id"))
         statusText.text = requireArguments().getString("status")
-        temperatureText.text = "${requireArguments().getDouble("temperature")} &deg;"
+        temperatureText.text = "${requireArguments().getDouble("temperature")} ° "
         return view
     }
 }
