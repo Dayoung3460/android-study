@@ -46,7 +46,7 @@ class MyAsyncTask (val activity: Activity): AsyncTask<String, Int, String>() {
 
     override fun onProgressUpdate(vararg values: Int?) {
         super.onProgressUpdate(*values)
-        Log.d("mytag", "onProgressUpdate: ${Thread.currentThread().name}")
+        Log.d("mytag", "onProgressUpdate: ${Thread.currentThread().name}, ${values[0]}")
         if(values[0]!! == 100) {
             completedTask.text = "Completed ${completedTaskCount + 1} tasks"
             completedTaskCount++
@@ -56,7 +56,7 @@ class MyAsyncTask (val activity: Activity): AsyncTask<String, Int, String>() {
 
     override fun onPostExecute(result: String?) {
         super.onPostExecute(result)
-        Log.d("mytag", "onPostExecute: ${Thread.currentThread().name}")
+        Log.d("mytag", "onPostExecute: ${Thread.currentThread().name}, ${result.toString()}")
         progressBar.visibility = View.GONE
         completedTask.text = "All completed (Total ${completedTaskCount} tasks)"
         resultText.text = result
