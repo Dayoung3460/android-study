@@ -9,8 +9,9 @@ class WeatherMainActivity : AppCompatActivity() {
         setContentView(R.layout.weather_main_activity)
 
         supportActionBar?.hide()
+        val fragment = WeatherPageFragment.newInstance(37.579876, 126.976998)
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, WeatherPageFragment.newInstance("Sunny", 10.0))
+        transaction.add(R.id.fragment_container, fragment)
         transaction.commit()
     }
 }
