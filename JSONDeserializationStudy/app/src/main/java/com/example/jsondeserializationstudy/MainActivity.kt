@@ -13,23 +13,22 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
-data class ComplexJSONData(val nested: ComplexJSONNested)
-data class ComplexJSONNested(@JsonProperty("inner_data") val innerData: String,
-@JsonProperty("inner_nested") val innerNested: ComplexJSONInnerNested)
-data class ComplexJSONInnerNested(val data1: Int, val data2: String, val list: List<Int>)
+@JsonDeserialize(using=MyComplexJSONDataDeserializer::class)
+data class ComplexJSONData2(val innerData: String?, val data1: Int?, val data2: String?, val list:List<Int>?)
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MyComplexJSONDataDeserializer: StdDeserializer<ComplexJSONData2>(ComplexJSONData2::class.java) {
+    override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): ComplexJSONData2 {
+        val node: JsonNode? = p?.codec?.readTree<JsonNode>(p)
+        val nestedNode: JsonNode? = node?.get("nested")
+        val innerDataValue = nestedNode?.get("inner_data")?.asText()
+        val innerNestedNode = nestedNode?.get("inner_nested")
+        val innerNestedData1Node = innerNestedNode?.get("data1")?.asInt()
+        val innerNestedData2Node = innerNestedNode?.get("data2")?.asText()
 
-        var mapper = jacksonObjectMapper()
-
-        val complexJsonString = """{"nested":{ "inner_data": "Hello from inner", "inner_nested":{ "data1": 1234, "data2": "Hello", "list": [1, 2, 3]}}}"""
-        var d4 = mapper?.readValue<ComplexJSONData>(complexJsonString)
-        Log.d("mytag", "${d4!!.nested.innerData}")
-        Log.d("mytag", "${d4.nested.innerNested.data1}")
-        Log.d("mytag", "${d4.nested.innerNested.data2}")
-        Log.d("mytag", "${d4.nested.innerNested.list}")
+        val list = mutableListOf<Int>()
+        innerNestedNode?.get("list")?.elements()?.forEach {
+            list.add(it.asInt())
+        }
+        return ComplexJSONData2(innerDataValue, innerNestedData1Node, innerNestedData2Node, list)
     }
 }
