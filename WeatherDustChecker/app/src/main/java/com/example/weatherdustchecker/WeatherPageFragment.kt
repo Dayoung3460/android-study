@@ -8,9 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import java.net.URL
 
 class WeatherPageFragment : Fragment() {
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    data class OpenWeatherAPIJSONResponse(val main: Map<String, String>, val weather: List<Map<String, String>>)
     private val APP_ID = "18f451857d0d7a022967387c8306eeab"
 
     lateinit var weatherImage: ImageView
@@ -55,6 +60,45 @@ class WeatherPageFragment : Fragment() {
         APICall(object: APICall.APICallback {
             override fun onComplete(result: String) {
                 Log.d("mytag", result)
+                var mapper = jacksonObjectMapper()
+                var data = mapper?.readValue<OpenWeatherAPIJSONResponse>(result)
+                val temp = data?.main?.get("temp")
+                temperatureText.text = temp
+
+                val id = data?.weather?.get(0)?.get("id")
+                if(id != null) {
+                    statusText.text = when {
+                        id.startsWith("2") -> {
+                            weatherImage.setImageResource(R.drawable.flash)
+                            "Thunder, lightning"
+                        }
+                        id.startsWith("3") -> {
+                            weatherImage.setImageResource(R.drawable.rain)
+                            "Drizzling"
+                        }
+                        id.startsWith("5") -> {
+                            weatherImage.setImageResource(R.drawable.rain)
+                            "Rain"
+                        }
+                        id.startsWith("6") -> {
+                            weatherImage.setImageResource(R.drawable.snow)
+                            "Snow"
+                        }
+                        id.startsWith("7") -> {
+                            weatherImage.setImageResource(R.drawable.cloudy)
+                            "Cloudy"
+                        }
+                        id.equals("800") -> {
+                            weatherImage.setImageResource(R.drawable.sun)
+                            "Sunny"
+                        }
+                        id.startsWith("8") -> {
+                            weatherImage.setImageResource(R.drawable.cloud)
+                            "Cloud"
+                        }
+                        else -> "Unknown"
+                    }
+                }
             }
 
         }).execute(URL(url))
