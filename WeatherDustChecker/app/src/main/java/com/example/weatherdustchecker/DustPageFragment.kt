@@ -46,7 +46,7 @@ class DustPageFragment: Fragment() {
             val fragment = DustPageFragment()
             val args = Bundle()
             args.putDouble("lat", lat)
-            args.putDouble("log", lon)
+            args.putDouble("lon", lon)
             fragment.arguments = args
             return fragment
         }
