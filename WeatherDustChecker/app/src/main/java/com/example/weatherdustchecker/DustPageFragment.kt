@@ -53,9 +53,17 @@ class DustPageFragment: Fragment() {
     }
 
     @JsonDeserialize(using=DustCheckerResponseDeserializer::class)
-    data class DustCheckResponse(val pm10: Int?, val pm25: Int?)
+    data class DustCheckResponse(val pm10: Int?, val pm25: Int?, val pm10Statue: String?, val pm25Status: String?)
 
     class DustCheckerResponseDeserializer: StdDeserializer<DustCheckResponse>(DustCheckResponse::class.java) {
+         private val checkCategory = { api: Int? -> when(api) {
+             null -> "Unknown"
+             in (0 .. 100) -> "Good"
+             in (101 .. 200) -> "Normal"
+             in (201 .. 300) -> "Bad"
+             else -> "Very bad"
+         } }
+
         override fun deserialize(p: JsonParser?, ctxt: DeserializationContext?): DustCheckResponse {
             var node: JsonNode? = p?.codec?.readTree<JsonNode>(p)
             var dataNode: JsonNode? = node?.get("data")
@@ -65,7 +73,10 @@ class DustPageFragment: Fragment() {
             var pm10 = pm10Node?.get("v")?.asInt()
             var pm25 = pm25Node?.get("v")?.asInt()
 
-            return DustCheckResponse(pm10, pm25)
+            var pm10Status = checkCategory(pm10)
+            var pm25Status = checkCategory(pm25)
+
+            return DustCheckResponse(pm10, pm25, pm10Status, pm25Status)
         }
     }
 
@@ -80,8 +91,22 @@ class DustPageFragment: Fragment() {
                 var mapper = jacksonObjectMapper()
                 val data = mapper?.readValue<DustCheckResponse>(result)
 
-                pm25IntensityText.text = data?.pm25?.toString()?: "Unknown"
-                pm10IntensityText.text = data?.pm10?.toString()?: "Unknown"
+                if(data ===  null) {
+                    return
+                }
+
+                statusImage.setImageResource(when(data.pm25Status) {
+                    "Good" -> R.drawable.good
+                    "Normal" -> R.drawable.normal
+                    "Bad" -> R.drawable.bad
+                    else -> R.drawable.very_bad
+                })
+
+                pm25IntensityText.text = data.pm25?.toString()?: "Unknown"
+                pm10IntensityText.text = data.pm10?.toString()?: "Unknown"
+
+                pm25StatusText.text = "${data.pm25Status} (Fine dust)"
+                pm10StatusText.text = "${data.pm10Statue} (Ultra fine dust)"
             }
 
         }).execute(URL(url))
