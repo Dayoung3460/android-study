@@ -9,15 +9,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment="show quote on UI">
-      <change beforePath="$PROJECT_DIR$/JSONDeserializationStudy/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JSONDeserializationStudy/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="10bd9572-48e5-4ee2-a857-c9711747542a" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/dayoungkim/.android/avd/Pixel_3a_API_33_arm64-v8a.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/dayoung/.android/avd/Pixel_4_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -25,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="2BHtUSDTQgzSUtUOgGf8eHKCYUQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
